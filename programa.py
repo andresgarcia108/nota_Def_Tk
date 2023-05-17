@@ -1,111 +1,179 @@
 # Programa que recibe los datos de un estudiante y calcula la nota definitiva de una materia y su IMC
 
 # Se importa tkinter y sus funciones
-import tkinter
-from tkinter import messagebox, ttk
+import tkinter as tk
+from tkinter import messagebox, ttk, Tk
 from tkinter import *
 
 # Se declara la variable correspondiente a la ventana principal
 
-ventana__Principal = Tk()
-
-ventana__Principal.title("Nota defintiva e IMC - Sistemas")
-ventana__Principal.geometry("600x700")
-ventana__Principal.resizable(False, False)
-ventana__Principal.config(bg ="cyan3")
-
-# Frame correspondiente a los datos del estudiante
-
-frameDat = Frame(ventana__Principal)
-frameDat.config(bg = "white" ,height=275, width=560)
-frameDat.place(x=20, y =20)
-
-# Texto correspondiente al frame de datos
-
-labDat = Label(frameDat, text="Datos Personales")
-labDat.config(font=("Arial", 16), bg="white")
-labDat.place(x =200, y =20)
-
-# Texto antes de la caja de datos (nombre)
-labNombre = Label(frameDat, text="Nombre:")
-labNombre.config(font=("Arial", 12), bg="white")
-labNombre.place(x =20, y =60)
-
-# Caja de datos (nombre)
-nombre = Entry(frameDat)
-nombre.config(bg="white", font=("Arial",12,) ,width=15)
-nombre.focus_set()
-nombre.place(x=90, y=60)
-
-# Texto antes de la caja de datos(edad)
-labEdad = Label(frameDat,text = "Edad:")
-labEdad.config(font=("Arial", 12), bg="white")
-labEdad.place(x=20 ,y=95)
-
-# Caja de datos (edad)
-edadent = Entry(frameDat)
-edadent.config(bg="white", font=("Arial",12,) ,width=10)
-edadent.focus_set()
-edadent.place(x=70, y=95)
-
-# Texto antes de la caja de datos(grado)
-labGrado = Label(frameDat,text = "Grado:")
-labGrado.config(font=("Arial", 12), bg="white")
-labGrado.place(x=20 ,y=130)
-
-# Caja de datos (grado)
-gradoent = Entry(frameDat)
-gradoent.config(bg="white", font=("Arial",12,) ,width=10)
-gradoent.focus_set()
-gradoent.place(x=75, y=130)
-
-# Texto antes de la caja de datos(identificación)
-labIdent = Label(frameDat,text = "Identificación:")
-labIdent.config(font=("Arial", 12), bg="white")
-labIdent.place(x=20 ,y=160)
-
-# Caja de datos (identficación)
-idenent = Entry(frameDat)
-idenent.config(bg="white", font=("Arial",12,) ,width=10)
-idenent.focus_set()
-idenent.place(x=125, y=160)
-
-# Texto antes de la caja de datos(teléfono)
-labIdent = Label(frameDat,text = "Teléfono:")
-labIdent.config(font=("Arial", 12), bg="white")
-labIdent.place(x=20 ,y=190)
-
-# Caja de datos (teléfono)
-idenent = Entry(frameDat)
-idenent.config(bg="white", font=("Arial",12,) ,width=10)
-idenent.focus_set()
-idenent.place(x=95, y=190)
-
-# Texto antes de la caja de datos(sede)
-labIdent = Label(frameDat,text = "Sede:")
-labIdent.config(font=("Arial", 12), bg="white")
-labIdent.place(x=20 ,y=220)
-
-# Caja de datos (sede)
-idenent = Entry(frameDat)
-idenent.config(bg="white", font=("Arial",12,) ,width=10)
-idenent.focus_set()
-idenent.place(x=75, y=220)
-
 # --------------------------------------
-
+"""
 # Botón correspondiente a los datos de la materia
-image_Notas = PhotoImage(file="./img/paulasiatico.png")
+image_Notas = PhotoImage(file="./img/baba.png")
 bot_Notas = Button(ventana__Principal)
 bot_Notas.config(image=image_Notas)
 bot_Notas.place(x=80, y =375)
 
 # Texto arriba del botón datos
 labIdent = Label(ventana__Principal,text = "Ingresar notas")
-labIdent.config(font=("Arial", 12), bg="cyan3")
+labIdent.config(font=("Arial", 12), bg="bisque")
 labIdent.place(x=105 ,y=350)
 
+# Texto arriba del botón datos salud
+labSalud = Label(ventana__Principal,text = "Datos sanidad")
+labSalud.config(font=("Arial", 12), bg="bisque")
+labSalud.place(x=360 ,y=350)
+
+image_Salud = PhotoImage(file="./img/salud.png")
+bot_Salud = Button(ventana__Principal)
+bot_Salud.config(image=image_Salud)
+bot_Salud.place (x=340, y =375)"""
+
+ventana_Principal = Tk()
+ventana_Principal.config(bg="white")
+ventana_Principal.geometry("600x700")
+ventana_Principal.resizable(False, False)
+ventana_Principal.title("Calculadora de nota definitiva e IMC")
+
+label1= Label(ventana_Principal, text="Calculadora de nota definitiva e IMC")
+label1.config(font=("Arial", 16), bg="white")
+label1.place(x=150, y =10)
 
 
+ing_Salud = Button(ventana_Principal, text="Datos de sanidad")
+ing_Salud.config(font=("Arial", 12),height=1, width=25 )
+ing_Salud.place(x=200, y=350)
 
-ventana__Principal.mainloop()
+ing_Salir = Button(ventana_Principal, text="Salir")
+ing_Salir.config(font=("Arial", 12),height=1, width=25 )
+ing_Salir.place(x=200, y=450)
+
+sistemas = PhotoImage(file="./img/sistemas.png")
+
+logoSistemas = Label(ventana_Principal)
+logoSistemas.config(image=sistemas)
+logoSistemas.place(x=475, y=500)
+
+def ingDatosdf():
+    datosPersonales = Toplevel()
+    datosPersonales.geometry("600x300")
+    datosPersonales.resizable(False, False)
+    datosPersonales.title("Calculadora de nota definitiva e IMC")
+    datosPersonales.config(bg="bisque")
+    # ----------------Variables ---------------
+    nombreG = tk.StringVar()
+    edadG = tk.IntVar()
+    gradoG = tk.IntVar()
+    identificaG = tk.IntVar()
+    telefG = tk.IntVar()  
+    sedeG = tk.StringVar()  
+    # Top Level notas
+    #--------------- Nombre --------------
+    labNombre = Label(datosPersonales, text="Nombre:")
+    labNombre.config(font=("Arial", 12), bg="bisque")
+    labNombre.place(x =20, y =60)
+    nombre = Entry(datosPersonales, textvariable=nombreG)
+    nombre.pack()
+    nombre.config(bg="white", font=("Arial",12,) ,width=18)
+    nombre.focus_set()
+    nombre.place(x=90, y=60)
+    # ------------- Edad -------------
+    labEdad = Label(datosPersonales,text = "Edad:")
+    labEdad.config(font=("Arial", 12), bg="bisque")
+    labEdad.place(x=20 ,y=95)
+    edadent = Entry(datosPersonales, textvariable=edadG)
+    edadent.pack()
+    edadent.config(bg="white", font=("Arial",12,) ,width=20)
+    edadent.focus_set()
+    edadent.place(x=70, y=95)
+    # ------------ Grado ------------
+    labGrado = Label(datosPersonales,text = "Grado:")
+    labGrado.config(font=("Arial", 12), bg="bisque")
+    labGrado.place(x=20 ,y=130)
+    gradoent = Entry(datosPersonales, textvariable=gradoG)
+    gradoent.pack()
+    gradoent.config(bg="white", font=("Arial",12,) ,width=19)
+    gradoent.focus_set()
+    gradoent.place(x=75, y=130)
+    # --------- Identificación ----------
+    labIdent = Label(datosPersonales,text = "Identificación:")
+    labIdent.config(font=("Arial", 12), bg="bisque")
+    labIdent.place(x=20 ,y=160)
+    idenent = Entry(datosPersonales, textvariable=identificaG)
+    idenent.pack()
+    idenent.config(bg="white", font=("Arial",12,) ,width=14)
+    idenent.focus_set()
+    idenent.place(x=125, y=160)
+    # --------- Teléfono ------------
+    labTelef = Label(datosPersonales,text = "Teléfono:")
+    labTelef.config(font=("Arial", 12), bg="bisque")
+    labTelef.place(x=20 ,y=190)
+    idTelef = Entry(datosPersonales, textvariable=telefG)
+    idTelef.pack()
+    idTelef.config(bg="white", font=("Arial",12,) ,width=17)
+    idTelef.focus_set()
+    idTelef.place(x=95, y=190)
+    # ------------ Sede -----------
+    labSede = Label(datosPersonales,text = "Sede:")
+    labSede.config(font=("Arial", 12), bg="bisque")
+    labSede.place(x=20 ,y=220)
+    combo=ttk.Combobox(datosPersonales,state="reandonly",values =["A", "B", "C", "D", "E"], textvariable=sedeG)
+    combo.pack()
+    combo.place(x=80, y =220)
+    combo.config(width=25)
+    labDat = Label(datosPersonales, text="Datos Personales")
+    labDat.config(font=("Arial", 16), bg="bisque")
+    labDat.place(x =200, y =20)
+    # ------------- Botón Salir ------------
+    btnSalir = Button(datosPersonales, text="Salir", font=("Arial", 12), bg="red", fg="white", command=datosPersonales.destroy)
+    btnSalir.place(x=250, y=260)
+    # ------ Función guardar-------
+    def guardar():
+        nombredef = nombre.get()
+        edaddef = edadG.get()
+        gradodef = gradoG.get()
+        iddef = identificaG.get()
+        telefdef = telefG.get()
+        sededef = sedeG.get()
+
+
+    # ------------- Botón Guardar ------------
+    btnGuardar = Button(datosPersonales, text="Guardar", font=("Arial", 12), bg="green", fg="white", command=guardar)
+    btnGuardar.place(x=350, y=260)
+
+
+def ingNotas():
+    notasPersonales = Toplevel()
+    notasPersonales.geometry("600x300")
+    notasPersonales.resizable(False, False)
+    notasPersonales.title("Calculadora de nota definitiva e IMC")
+    notasPersonales.config(bg="bisque")
+    academica = Label(notasPersonales, text="Información académica")
+    academica.config(bg="bisque", font=("Arial", 16))
+    academica.place(x =200, y =15)
+    # ------------ Materia-----------
+    materiaLabel = Label(notasPersonales,text = "Materia:")
+    materiaLabel.config(font=("Arial",12), bg ="bisque")
+    materiaLabel.place(x =10, y=70)
+    materiaCombo = ttk.Combobox(notasPersonales, state="reandonly", values=["Matemáticas", "Sociales", "Filosofía", "Religión", "Español", "Química", 
+                                                                           "Física","Inglés", "Ciencias Políticas", "Artística", "Especialidad", "Estadística"])
+    materiaCombo.place(x=75, y=70)
+    materiaCombo.config(width=25)
+    # ------------ Nota Cognitiva --------------
+    notaDefintiva = Label(notasPersonales, text="Nota Defintiva:")
+    notaDefintiva.config(font=("Arial", 12), bg ="bisque")
+    notaDefintiva.place(x =10, y=110)
+    definitivaEntry = Entry(notasPersonales)
+    definitivaEntry.place(x=125, y=113)
+
+
+ing_Notas = Button(ventana_Principal, text="Ingresar notas", command=ingNotas)
+ing_Notas.config(font=("Arial", 12),height=1, width=25 )
+ing_Notas.place(x=200, y=250)
+
+ing_Datos = Button(ventana_Principal, text="Ingresar datos personales", command=ingDatosdf)
+ing_Datos.config(font=("Arial", 12), height=1, width=25)
+ing_Datos.place(x=200, y =150)
+ventana_Principal.mainloop()
+#ventana__Principal.mainloop()

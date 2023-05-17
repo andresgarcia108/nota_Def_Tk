@@ -41,11 +41,7 @@ label1.config(font=("Arial", 16), bg="white")
 label1.place(x=150, y =10)
 
 
-ing_Salud = Button(ventana_Principal, text="Datos de sanidad")
-ing_Salud.config(font=("Arial", 12),height=1, width=25 )
-ing_Salud.place(x=200, y=350)
-
-ing_Salir = Button(ventana_Principal, text="Salir")
+ing_Salir = Button(ventana_Principal, text="Salir", command=ventana_Principal.destroy)
 ing_Salir.config(font=("Arial", 12),height=1, width=25 )
 ing_Salir.place(x=200, y=450)
 
@@ -61,19 +57,11 @@ def ingDatosdf():
     datosPersonales.resizable(False, False)
     datosPersonales.title("Calculadora de nota definitiva e IMC")
     datosPersonales.config(bg="bisque")
-    # ----------------Variables ---------------
-    nombreG = tk.StringVar()
-    edadG = tk.IntVar()
-    gradoG = tk.IntVar()
-    identificaG = tk.IntVar()
-    telefG = tk.IntVar()  
-    sedeG = tk.StringVar()  
-    # Top Level notas
     #--------------- Nombre --------------
     labNombre = Label(datosPersonales, text="Nombre:")
     labNombre.config(font=("Arial", 12), bg="bisque")
     labNombre.place(x =20, y =60)
-    nombre = Entry(datosPersonales, textvariable=nombreG)
+    nombre = Entry(datosPersonales)
     nombre.pack()
     nombre.config(bg="white", font=("Arial",12,) ,width=18)
     nombre.focus_set()
@@ -82,7 +70,7 @@ def ingDatosdf():
     labEdad = Label(datosPersonales,text = "Edad:")
     labEdad.config(font=("Arial", 12), bg="bisque")
     labEdad.place(x=20 ,y=95)
-    edadent = Entry(datosPersonales, textvariable=edadG)
+    edadent = Entry(datosPersonales)
     edadent.pack()
     edadent.config(bg="white", font=("Arial",12,) ,width=20)
     edadent.focus_set()
@@ -91,7 +79,7 @@ def ingDatosdf():
     labGrado = Label(datosPersonales,text = "Grado:")
     labGrado.config(font=("Arial", 12), bg="bisque")
     labGrado.place(x=20 ,y=130)
-    gradoent = Entry(datosPersonales, textvariable=gradoG)
+    gradoent = Entry(datosPersonales)
     gradoent.pack()
     gradoent.config(bg="white", font=("Arial",12,) ,width=19)
     gradoent.focus_set()
@@ -100,7 +88,7 @@ def ingDatosdf():
     labIdent = Label(datosPersonales,text = "Identificación:")
     labIdent.config(font=("Arial", 12), bg="bisque")
     labIdent.place(x=20 ,y=160)
-    idenent = Entry(datosPersonales, textvariable=identificaG)
+    idenent = Entry(datosPersonales)
     idenent.pack()
     idenent.config(bg="white", font=("Arial",12,) ,width=14)
     idenent.focus_set()
@@ -109,7 +97,7 @@ def ingDatosdf():
     labTelef = Label(datosPersonales,text = "Teléfono:")
     labTelef.config(font=("Arial", 12), bg="bisque")
     labTelef.place(x=20 ,y=190)
-    idTelef = Entry(datosPersonales, textvariable=telefG)
+    idTelef = Entry(datosPersonales)
     idTelef.pack()
     idTelef.config(bg="white", font=("Arial",12,) ,width=17)
     idTelef.focus_set()
@@ -118,7 +106,7 @@ def ingDatosdf():
     labSede = Label(datosPersonales,text = "Sede:")
     labSede.config(font=("Arial", 12), bg="bisque")
     labSede.place(x=20 ,y=220)
-    combo=ttk.Combobox(datosPersonales,state="reandonly",values =["A", "B", "C", "D", "E"], textvariable=sedeG)
+    combo=ttk.Combobox(datosPersonales,state="reandonly",values =["A", "B", "C", "D", "E"])
     combo.pack()
     combo.place(x=80, y =220)
     combo.config(width=25)
@@ -127,20 +115,8 @@ def ingDatosdf():
     labDat.place(x =200, y =20)
     # ------------- Botón Salir ------------
     btnSalir = Button(datosPersonales, text="Salir", font=("Arial", 12), bg="red", fg="white", command=datosPersonales.destroy)
-    btnSalir.place(x=250, y=260)
-    # ------ Función guardar-------
-    def guardar():
-        nombredef = nombre.get()
-        edaddef = edadG.get()
-        gradodef = gradoG.get()
-        iddef = identificaG.get()
-        telefdef = telefG.get()
-        sededef = sedeG.get()
+    btnSalir.place(x=280, y=260)
 
-
-    # ------------- Botón Guardar ------------
-    btnGuardar = Button(datosPersonales, text="Guardar", font=("Arial", 12), bg="green", fg="white", command=guardar)
-    btnGuardar.place(x=350, y=260)
 
 
 def ingNotas():
@@ -152,20 +128,112 @@ def ingNotas():
     academica = Label(notasPersonales, text="Información académica")
     academica.config(bg="bisque", font=("Arial", 16))
     academica.place(x =200, y =15)
+
     # ------------ Materia-----------
     materiaLabel = Label(notasPersonales,text = "Materia:")
     materiaLabel.config(font=("Arial",12), bg ="bisque")
-    materiaLabel.place(x =10, y=70)
+    materiaLabel.place(x =10, y=80)
     materiaCombo = ttk.Combobox(notasPersonales, state="reandonly", values=["Matemáticas", "Sociales", "Filosofía", "Religión", "Español", "Química", 
                                                                            "Física","Inglés", "Ciencias Políticas", "Artística", "Especialidad", "Estadística"])
-    materiaCombo.place(x=75, y=70)
+    materiaCombo.place(x=75, y=80)
     materiaCombo.config(width=25)
     # ------------ Nota Cognitiva --------------
-    notaDefintiva = Label(notasPersonales, text="Nota Defintiva:")
-    notaDefintiva.config(font=("Arial", 12), bg ="bisque")
-    notaDefintiva.place(x =10, y=110)
-    definitivaEntry = Entry(notasPersonales)
-    definitivaEntry.place(x=125, y=113)
+    notaCognitiva = Label(notasPersonales, text="Nota cognitiva:")
+    notaCognitiva.config(font=("Arial", 12), bg ="bisque")
+    notaCognitiva.place(x =10, y=110)
+    entry_cog = Entry(notasPersonales)
+    entry_cog.place(x=125, y=113)
+    # ------------ Nota Procedimental --------------
+    notaProcedimental = Label(notasPersonales, text="Nota procedimental:")
+    notaProcedimental.config(font=("Arial", 12), bg ="bisque")
+    notaProcedimental.place(x =10, y=140)
+    entry_proce = Entry(notasPersonales)
+    entry_proce.place(x=157, y=140)
+    # ------------ Nota Actitudinal --------------
+    notaActitudinal = Label(notasPersonales, text="Nota actitudinal:")
+    notaActitudinal.config(font=("Arial", 12), bg ="bisque")
+    notaActitudinal.place(x =10, y=173)
+    entry_acti = Entry(notasPersonales)
+    entry_acti.place(x=135, y=173)
+    # ------------ Nota Autoevaluación --------------
+    notaAutoevalu = Label(notasPersonales, text="Nota autoevaluación:")
+    notaAutoevalu.config(font=("Arial", 12), bg ="bisque")
+    notaAutoevalu.place(x =10, y=203)
+    entry_cog = Entry(notasPersonales)
+    entry_cog.place(x=165, y=203)
+    # ------------ Nota Bimestral --------------
+    notaBimestral = Label(notasPersonales, text="Nota bimestral:")
+    notaBimestral.config(font=("Arial", 12), bg ="bisque")
+    notaBimestral.place(x =10, y=203)
+    entry_bime = Entry(notasPersonales)
+    entry_bime.place(x=165, y=203)
+    # ------------- Botón Salir ------------
+    btnSalir = Button(notasPersonales, text="Salir", font=("Arial", 12), bg="red", fg="white", command=notasPersonales.destroy)
+    btnSalir.place(x=250, y=260)
+    # ------ Función calcular-------
+    def calcular1():
+        entry_proce_def = (entry_proce.get())
+        entry_cog_def = (entry_cog.get())
+        entry_auto_def = (entry_cog.get())
+        entry_acti_def = (entry_acti.get())
+        entry_bime_def = (entry_bime.get())
+
+        entry_not_final = (0.3*entry_proce_def) + (0.3*entry_cog_def) + (0.1*entry_auto_def) + (0.1*entry_acti_def) + (0.2*entry_bime_def)
+
+        if entry_not_final < 30:
+                messagebox.showinfo("Resultado", "El alumno reprobo la asignatura  :")
+        else:
+                messagebox.showinfo("Resultado", "El alumno aprobo la asignatura :")
+
+ 
+
+
+    boton1Calcular = Button(notasPersonales, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=calcular1)
+    boton1Calcular.place(x=350, y=260)
+
+def ingSanidad():
+    sanidadDatos = Toplevel()
+    sanidadDatos.geometry("600x300")
+    sanidadDatos.resizable(False, False)
+    sanidadDatos.title("Calculadora de nota definitiva e IMC")
+    sanidadDatos.config(bg="bisque")
+    saludPaul = PhotoImage(file="./img/salud.png")
+    holaLabel = Label(sanidadDatos,image=saludPaul)
+    holaLabel.place(x=300, y =100)
+
+    textoSalud = Label(sanidadDatos, text="Datos de Sanidad")
+    textoSalud.config(font=("Arial", 16), bg="bisque")
+    textoSalud.place(x=225, y=15)
+
+    epsStr = Label(sanidadDatos, text="EPS:")
+    epsStr.config(font=("Arial", 12), bg="bisque")
+    epsStr.place(x=10, y =80)
+    epsEntry = Entry(sanidadDatos)
+    epsEntry.place(x=50, y=80)
+
+    alturaFloat = Label(sanidadDatos, text="Altura(mt):")
+    alturaFloat.config(font=("Arial", 12), bg="bisque")
+    alturaFloat.place(x=10, y =110)
+
+    alturaEntry = Entry(sanidadDatos)
+    alturaEntry.place(x=90, y=110)
+
+    pesoFloat = Label(sanidadDatos, text="Peso(kg):")
+    pesoFloat.config(font=("Arial", 12), bg="bisque")
+    pesoFloat.place(x=10, y=140)
+    
+    pesoEntry = Entry(sanidadDatos)
+    pesoEntry.place(x=85, y=140 )
+    # ------------- Botón Salir ------------
+    btnSalir = Button(sanidadDatos, text="Salir", font=("Arial", 12), bg="red", fg="white", command=sanidadDatos.destroy)
+    btnSalir.place(x=250, y=260)
+    # ------ Función calcular -------
+    def calcular2():
+        eps = str(epsEntry.get())
+        peso = int(pesoEntry.get())
+        altura = int(alturaEntry.get())
+    boton2Calcular = Button(sanidadDatos, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=calcular2)
+    boton2Calcular.place(x=350, y=260)
 
 
 ing_Notas = Button(ventana_Principal, text="Ingresar notas", command=ingNotas)
@@ -175,5 +243,10 @@ ing_Notas.place(x=200, y=250)
 ing_Datos = Button(ventana_Principal, text="Ingresar datos personales", command=ingDatosdf)
 ing_Datos.config(font=("Arial", 12), height=1, width=25)
 ing_Datos.place(x=200, y =150)
+
+ing_Salud = Button(ventana_Principal, text="Datos de sanidad", command=ingSanidad)
+ing_Salud.config(font=("Arial", 12),height=1, width=25 )
+ing_Salud.place(x=200, y=350)
+
 ventana_Principal.mainloop()
 #ventana__Principal.mainloop()

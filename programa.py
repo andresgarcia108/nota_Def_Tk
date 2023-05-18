@@ -6,35 +6,11 @@ from tkinter import messagebox, ttk, Tk
 from tkinter import *
 
 # Se declara la variable correspondiente a la ventana principal
-
-# --------------------------------------
-"""
-# Botón correspondiente a los datos de la materia
-image_Notas = PhotoImage(file="./img/baba.png")
-bot_Notas = Button(ventana__Principal)
-bot_Notas.config(image=image_Notas)
-bot_Notas.place(x=80, y =375)
-
-# Texto arriba del botón datos
-labIdent = Label(ventana__Principal,text = "Ingresar notas")
-labIdent.config(font=("Arial", 12), bg="bisque")
-labIdent.place(x=105 ,y=350)
-
-# Texto arriba del botón datos salud
-labSalud = Label(ventana__Principal,text = "Datos sanidad")
-labSalud.config(font=("Arial", 12), bg="bisque")
-labSalud.place(x=360 ,y=350)
-
-image_Salud = PhotoImage(file="./img/salud.png")
-bot_Salud = Button(ventana__Principal)
-bot_Salud.config(image=image_Salud)
-bot_Salud.place (x=340, y =375)"""
-
 ventana_Principal = Tk()
 ventana_Principal.config(bg="white")
 ventana_Principal.geometry("600x700")
 ventana_Principal.resizable(False, False)
-ventana_Principal.title("Calculadora de nota definitiva e IMC")
+ventana_Principal.title("Andrés Felipe García Solano")
 
 label1= Label(ventana_Principal, text="Calculadora de nota definitiva e IMC")
 label1.config(font=("Arial", 16), bg="white")
@@ -45,10 +21,12 @@ ing_Salir = Button(ventana_Principal, text="Salir", command=ventana_Principal.de
 ing_Salir.config(font=("Arial", 12),height=1, width=25 )
 ing_Salir.place(x=200, y=450)
 
+salud = PhotoImage(file="./img/salud.png")
+colegio = PhotoImage(file="./img/colegio.png")
 sistemas = PhotoImage(file="./img/sistemas.png")
-
+datosss = PhotoImage(file="./img/datosss1.png")
 logoSistemas = Label(ventana_Principal)
-logoSistemas.config(image=sistemas)
+logoSistemas.config(image=sistemas, bg="white")
 logoSistemas.place(x=475, y=500)
 
 def ingDatosdf():
@@ -56,62 +34,59 @@ def ingDatosdf():
     datosPersonales.geometry("600x300")
     datosPersonales.resizable(False, False)
     datosPersonales.title("Calculadora de nota definitiva e IMC")
-    datosPersonales.config(bg="bisque")
+    datosPersonales.config(bg="white")
+    labelDatos = Label(datosPersonales)
+    labelDatos.config(image=datosss, bg="white")
+    labelDatos.place(x=350,y=60)
     #--------------- Nombre --------------
     labNombre = Label(datosPersonales, text="Nombre:")
-    labNombre.config(font=("Arial", 12), bg="bisque")
+    labNombre.config(font=("Arial", 12), bg="white")
     labNombre.place(x =20, y =60)
     nombre = Entry(datosPersonales)
-    nombre.pack()
     nombre.config(bg="white", font=("Arial",12,) ,width=18)
     nombre.focus_set()
-    nombre.place(x=90, y=60)
+    nombre.place(x=125, y=60)
     # ------------- Edad -------------
     labEdad = Label(datosPersonales,text = "Edad:")
-    labEdad.config(font=("Arial", 12), bg="bisque")
+    labEdad.config(font=("Arial", 12), bg="white")
     labEdad.place(x=20 ,y=95)
     edadent = Entry(datosPersonales)
-    edadent.pack()
-    edadent.config(bg="white", font=("Arial",12,) ,width=20)
+    edadent.config(bg="white", font=("Arial",12,) ,width=18)
     edadent.focus_set()
-    edadent.place(x=70, y=95)
+    edadent.place(x=125, y=95)
     # ------------ Grado ------------
     labGrado = Label(datosPersonales,text = "Grado:")
-    labGrado.config(font=("Arial", 12), bg="bisque")
+    labGrado.config(font=("Arial", 12), bg="white")
     labGrado.place(x=20 ,y=130)
     gradoent = Entry(datosPersonales)
-    gradoent.pack()
-    gradoent.config(bg="white", font=("Arial",12,) ,width=19)
+    gradoent.config(bg="white", font=("Arial",12,) ,width=18)
     gradoent.focus_set()
-    gradoent.place(x=75, y=130)
+    gradoent.place(x=125, y=130)
     # --------- Identificación ----------
     labIdent = Label(datosPersonales,text = "Identificación:")
-    labIdent.config(font=("Arial", 12), bg="bisque")
+    labIdent.config(font=("Arial", 12), bg="white")
     labIdent.place(x=20 ,y=160)
     idenent = Entry(datosPersonales)
-    idenent.pack()
-    idenent.config(bg="white", font=("Arial",12,) ,width=14)
+    idenent.config(bg="white", font=("Arial",12,) ,width=18)
     idenent.focus_set()
     idenent.place(x=125, y=160)
     # --------- Teléfono ------------
     labTelef = Label(datosPersonales,text = "Teléfono:")
-    labTelef.config(font=("Arial", 12), bg="bisque")
+    labTelef.config(font=("Arial", 12), bg="white")
     labTelef.place(x=20 ,y=190)
     idTelef = Entry(datosPersonales)
-    idTelef.pack()
-    idTelef.config(bg="white", font=("Arial",12,) ,width=17)
+    idTelef.config(bg="white", font=("Arial",12,) ,width=18)
     idTelef.focus_set()
-    idTelef.place(x=95, y=190)
+    idTelef.place(x=125, y=190)
     # ------------ Sede -----------
     labSede = Label(datosPersonales,text = "Sede:")
-    labSede.config(font=("Arial", 12), bg="bisque")
+    labSede.config(font=("Arial", 12), bg="white")
     labSede.place(x=20 ,y=220)
     combo=ttk.Combobox(datosPersonales,state="reandonly",values =["A", "B", "C", "D", "E"])
-    combo.pack()
-    combo.place(x=80, y =220)
-    combo.config(width=25)
+    combo.place(x=125, y =220)
+    combo.config(width=19)
     labDat = Label(datosPersonales, text="Datos Personales")
-    labDat.config(font=("Arial", 16), bg="bisque")
+    labDat.config(font=("Arial", 16), bg="white")
     labDat.place(x =200, y =20)
     # ------------- Botón Salir ------------
     btnSalir = Button(datosPersonales, text="Salir", font=("Arial", 12), bg="red", fg="white", command=datosPersonales.destroy)
@@ -124,71 +99,81 @@ def ingNotas():
     notasPersonales.geometry("600x300")
     notasPersonales.resizable(False, False)
     notasPersonales.title("Calculadora de nota definitiva e IMC")
-    notasPersonales.config(bg="bisque")
+    notasPersonales.config(bg="white")
+    labelColegio = Label(notasPersonales)
+    labelColegio.config(image=colegio, bg="white")
+    labelColegio.place(x=350,y=60)
     academica = Label(notasPersonales, text="Información académica")
-    academica.config(bg="bisque", font=("Arial", 16))
+    academica.config(bg="white", font=("Arial", 16))
     academica.place(x =200, y =15)
 
     # ------------ Materia-----------
     materiaLabel = Label(notasPersonales,text = "Materia:")
-    materiaLabel.config(font=("Arial",12), bg ="bisque")
+    materiaLabel.config(font=("Arial",12), bg ="white")
     materiaLabel.place(x =10, y=80)
     materiaCombo = ttk.Combobox(notasPersonales, state="reandonly", values=["Matemáticas", "Sociales", "Filosofía", "Religión", "Español", "Química", 
                                                                            "Física","Inglés", "Ciencias Políticas", "Artística", "Especialidad", "Estadística"])
-    materiaCombo.place(x=75, y=80)
-    materiaCombo.config(width=25)
+    materiaCombo.place(x=165, y=80)
+    materiaCombo.config(width=19)
     # ------------ Nota Cognitiva --------------
     notaCognitiva = Label(notasPersonales, text="Nota cognitiva:")
-    notaCognitiva.config(font=("Arial", 12), bg ="bisque")
+    notaCognitiva.config(font=("Arial", 12), bg ="white")
     notaCognitiva.place(x =10, y=110)
     entry_cog = Entry(notasPersonales)
-    entry_cog.place(x=125, y=113)
+    entry_cog.place(x=165, y=113)
+
     # ------------ Nota Procedimental --------------
     notaProcedimental = Label(notasPersonales, text="Nota procedimental:")
-    notaProcedimental.config(font=("Arial", 12), bg ="bisque")
+    notaProcedimental.config(font=("Arial", 12), bg ="white")
     notaProcedimental.place(x =10, y=140)
     entry_proce = Entry(notasPersonales)
-    entry_proce.place(x=157, y=140)
+    entry_proce.place(x=165, y=140)
     # ------------ Nota Actitudinal --------------
     notaActitudinal = Label(notasPersonales, text="Nota actitudinal:")
-    notaActitudinal.config(font=("Arial", 12), bg ="bisque")
+    notaActitudinal.config(font=("Arial", 12), bg ="white")
     notaActitudinal.place(x =10, y=173)
     entry_acti = Entry(notasPersonales)
-    entry_acti.place(x=135, y=173)
+    entry_acti.place(x=165, y=173)
     # ------------ Nota Autoevaluación --------------
     notaAutoevalu = Label(notasPersonales, text="Nota autoevaluación:")
-    notaAutoevalu.config(font=("Arial", 12), bg ="bisque")
+    notaAutoevalu.config(font=("Arial", 12), bg ="white")
     notaAutoevalu.place(x =10, y=203)
-    entry_cog = Entry(notasPersonales)
-    entry_cog.place(x=165, y=203)
+    entry_auto = Entry(notasPersonales)
+    entry_auto.place(x=165, y=203)
     # ------------ Nota Bimestral --------------
     notaBimestral = Label(notasPersonales, text="Nota bimestral:")
-    notaBimestral.config(font=("Arial", 12), bg ="bisque")
-    notaBimestral.place(x =10, y=203)
+    notaBimestral.config(font=("Arial", 12), bg ="white")
+    notaBimestral.place(x =10, y=233)
     entry_bime = Entry(notasPersonales)
-    entry_bime.place(x=165, y=203)
+    entry_bime.place(x=165, y=233)
     # ------------- Botón Salir ------------
     btnSalir = Button(notasPersonales, text="Salir", font=("Arial", 12), bg="red", fg="white", command=notasPersonales.destroy)
     btnSalir.place(x=250, y=260)
     # ------ Función calcular-------
-    def calcular1():
-        entry_proce_def = (entry_proce.get())
-        entry_cog_def = (entry_cog.get())
-        entry_auto_def = (entry_cog.get())
-        entry_acti_def = (entry_acti.get())
-        entry_bime_def = (entry_bime.get())
 
-        entry_not_final = (0.3*entry_proce_def) + (0.3*entry_cog_def) + (0.1*entry_auto_def) + (0.1*entry_acti_def) + (0.2*entry_bime_def)
+
+# convertir
+    def convertir():
+        messagebox.showinfo("Nota Definitiva", "Operación realizada")
+
+        # variables notas
+
+        entry_proce_def = float(entry_proce.get())
+        entry_cog_def = float(entry_cog.get())
+        entry_autoe_def = float(entry_auto.get())
+        entry_acti_def = float(entry_acti.get())
+        entry_bime_def = float(entry_bime.get())
+
+        entry_not_final = (0.3*entry_proce_def) + (0.3*entry_cog_def) + (0.1*entry_autoe_def) + (0.1*entry_acti_def) + (0.2*entry_bime_def)
 
         if entry_not_final < 30:
-                messagebox.showinfo("Resultado", "El alumno reprobo la asignatura  :")
+                messagebox.showinfo("Resultado", "El alumno reprobó la asignatura, su nota es: "+ str(entry_not_final))
         else:
-                messagebox.showinfo("Resultado", "El alumno aprobo la asignatura :")
-
+                messagebox.showinfo("Resultado", "El alumno aprobó la asignatura, su nota es : "+str(entry_not_final))
+    boton1Calcular = Button(notasPersonales, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=convertir)
+    boton1Calcular.place(x=350, y=260)
  
-
-
-    boton1Calcular = Button(notasPersonales, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=calcular1)
+    boton1Calcular = Button(notasPersonales, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=convertir)
     boton1Calcular.place(x=350, y=260)
 
 def ingSanidad():
@@ -196,47 +181,68 @@ def ingSanidad():
     sanidadDatos.geometry("600x300")
     sanidadDatos.resizable(False, False)
     sanidadDatos.title("Calculadora de nota definitiva e IMC")
-    sanidadDatos.config(bg="bisque")
-    saludPaul = PhotoImage(file="./img/salud.png")
-    holaLabel = Label(sanidadDatos,image=saludPaul)
-    holaLabel.place(x=300, y =100)
+    sanidadDatos.config(bg="white")
+    saludLabel = Label(sanidadDatos)
+    saludLabel.config(image=salud, bg="white")
+    saludLabel.place(x=350, y=60)
+
+
 
     textoSalud = Label(sanidadDatos, text="Datos de Sanidad")
-    textoSalud.config(font=("Arial", 16), bg="bisque")
+    textoSalud.config(font=("Arial", 16), bg="white")
     textoSalud.place(x=225, y=15)
 
     epsStr = Label(sanidadDatos, text="EPS:")
-    epsStr.config(font=("Arial", 12), bg="bisque")
+    epsStr.config(font=("Arial", 12), bg="white")
     epsStr.place(x=10, y =80)
     epsEntry = Entry(sanidadDatos)
-    epsEntry.place(x=50, y=80)
+    epsEntry.place(x=90, y=80)
 
     alturaFloat = Label(sanidadDatos, text="Altura(mt):")
-    alturaFloat.config(font=("Arial", 12), bg="bisque")
+    alturaFloat.config(font=("Arial", 12), bg="white")
     alturaFloat.place(x=10, y =110)
 
     alturaEntry = Entry(sanidadDatos)
     alturaEntry.place(x=90, y=110)
 
     pesoFloat = Label(sanidadDatos, text="Peso(kg):")
-    pesoFloat.config(font=("Arial", 12), bg="bisque")
+    pesoFloat.config(font=("Arial", 12), bg="white")
     pesoFloat.place(x=10, y=140)
     
     pesoEntry = Entry(sanidadDatos)
-    pesoEntry.place(x=85, y=140 )
+    pesoEntry.place(x=90, y=140 )
     # ------------- Botón Salir ------------
     btnSalir = Button(sanidadDatos, text="Salir", font=("Arial", 12), bg="red", fg="white", command=sanidadDatos.destroy)
     btnSalir.place(x=250, y=260)
     # ------ Función calcular -------
-    def calcular2():
-        eps = str(epsEntry.get())
-        peso = int(pesoEntry.get())
-        altura = int(alturaEntry.get())
-    boton2Calcular = Button(sanidadDatos, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=calcular2)
-    boton2Calcular.place(x=350, y=260)
+    def convertir_imc ():
+        estatura = float(alturaEntry.get())
+        peso = float(pesoEntry.get())
+        imc = peso / estatura**2
+      
+        if imc < 16:
+            messagebox.showinfo("Resultado","Su imc corresponde a delgadez severa")
+        elif imc < 17:
+            messagebox.showinfo("Resultado","Su imc corresponde a delgadez moderada")
+        elif imc < 18.5:
+            messagebox.showinfo("Resultado","Su imc corresponde a delgadez ligera")
+        elif imc < 25:
+            messagebox.showinfo("Resultado","Su imc corresponde a Saludable")
+        elif imc < 30:
+            messagebox.showinfo("Resultado","Su imc corresponde a Sobrepeso")
+        elif imc < 35:
+            messagebox.showinfo("Resultado","Su imc corresponde a Obesidad grado I")
+        elif imc < 40:
+            messagebox.showinfo("Resultado","Su imc corresponde a Obesidad grado II (grave)")
+        else:
+            messagebox.showinfo("Resultado","Su imc corresponde a Obesidad grado III (mórbida)")
+    boton3Calcular = Button(sanidadDatos, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=convertir_imc)
+    boton3Calcular.place(x=350, y=260)
 
 
-ing_Notas = Button(ventana_Principal, text="Ingresar notas", command=ingNotas)
+
+
+ing_Notas = Button(ventana_Principal, text="Nota definitiva", command=ingNotas)
 ing_Notas.config(font=("Arial", 12),height=1, width=25 )
 ing_Notas.place(x=200, y=250)
 
@@ -244,7 +250,7 @@ ing_Datos = Button(ventana_Principal, text="Ingresar datos personales", command=
 ing_Datos.config(font=("Arial", 12), height=1, width=25)
 ing_Datos.place(x=200, y =150)
 
-ing_Salud = Button(ventana_Principal, text="Datos de sanidad", command=ingSanidad)
+ing_Salud = Button(ventana_Principal, text="IMC", command=ingSanidad)
 ing_Salud.config(font=("Arial", 12),height=1, width=25 )
 ing_Salud.place(x=200, y=350)
 

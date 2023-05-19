@@ -11,16 +11,11 @@ ventana_Principal.config(bg="white")
 ventana_Principal.geometry("600x700")
 ventana_Principal.resizable(False, False)
 ventana_Principal.title("Andrés Felipe García Solano")
-
+# Label del título en  pantalla
 label1= Label(ventana_Principal, text="Calculadora de nota definitiva e IMC")
 label1.config(font=("Arial", 16), bg="white")
-label1.place(x=150, y =10)
-
-
-ing_Salir = Button(ventana_Principal, text="Salir", command=ventana_Principal.destroy)
-ing_Salir.config(font=("Arial", 12),height=1, width=25 )
-ing_Salir.place(x=200, y=450)
-
+label1.place(x=130, y =10)
+# Declaración variables imágenes
 salud = PhotoImage(file="./img/salud.png")
 colegio = PhotoImage(file="./img/colegio.png")
 sistemas = PhotoImage(file="./img/sistemas.png")
@@ -28,7 +23,7 @@ datosss = PhotoImage(file="./img/datosss1.png")
 logoSistemas = Label(ventana_Principal)
 logoSistemas.config(image=sistemas, bg="white")
 logoSistemas.place(x=475, y=500)
-
+# Función ingresar datos
 def ingDatosdf():
     datosPersonales = Toplevel()
     datosPersonales.geometry("600x300")
@@ -93,7 +88,7 @@ def ingDatosdf():
     btnSalir.place(x=280, y=260)
 
 
-
+# Función ingresar notas
 def ingNotas():
     notasPersonales = Toplevel()
     notasPersonales.geometry("600x300")
@@ -150,32 +145,27 @@ def ingNotas():
     btnSalir = Button(notasPersonales, text="Salir", font=("Arial", 12), bg="red", fg="white", command=notasPersonales.destroy)
     btnSalir.place(x=250, y=260)
     # ------ Función calcular-------
-
-
-# convertir
     def convertir():
         messagebox.showinfo("Nota Definitiva", "Operación realizada")
 
-        # variables notas
+        # Variables notas
 
         entry_proce_def = float(entry_proce.get())
         entry_cog_def = float(entry_cog.get())
         entry_autoe_def = float(entry_auto.get())
         entry_acti_def = float(entry_acti.get())
         entry_bime_def = float(entry_bime.get())
-
+        # Cálculo nota definitiva
         entry_not_final = (0.3*entry_proce_def) + (0.3*entry_cog_def) + (0.1*entry_autoe_def) + (0.1*entry_acti_def) + (0.2*entry_bime_def)
 
         if entry_not_final < 30:
                 messagebox.showinfo("Resultado", "El alumno reprobó la asignatura, su nota es: "+ str(entry_not_final))
         else:
                 messagebox.showinfo("Resultado", "El alumno aprobó la asignatura, su nota es : "+str(entry_not_final))
+    # Botón para calcular nota definitiva
     boton1Calcular = Button(notasPersonales, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=convertir)
     boton1Calcular.place(x=350, y=260)
- 
-    boton1Calcular = Button(notasPersonales, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=convertir)
-    boton1Calcular.place(x=350, y=260)
-
+# Función abrir IMC
 def ingSanidad():
     sanidadDatos = Toplevel()
     sanidadDatos.geometry("600x300")
@@ -191,20 +181,20 @@ def ingSanidad():
     textoSalud = Label(sanidadDatos, text="Datos de Sanidad")
     textoSalud.config(font=("Arial", 16), bg="white")
     textoSalud.place(x=225, y=15)
-
+# -------- EPS -------
     epsStr = Label(sanidadDatos, text="EPS:")
     epsStr.config(font=("Arial", 12), bg="white")
     epsStr.place(x=10, y =80)
     epsEntry = Entry(sanidadDatos)
     epsEntry.place(x=90, y=80)
-
+# -------- Altura --------
     alturaFloat = Label(sanidadDatos, text="Altura(mt):")
     alturaFloat.config(font=("Arial", 12), bg="white")
     alturaFloat.place(x=10, y =110)
 
     alturaEntry = Entry(sanidadDatos)
     alturaEntry.place(x=90, y=110)
-
+# -------- Peso -------
     pesoFloat = Label(sanidadDatos, text="Peso(kg):")
     pesoFloat.config(font=("Arial", 12), bg="white")
     pesoFloat.place(x=10, y=140)
@@ -219,7 +209,7 @@ def ingSanidad():
         estatura = float(alturaEntry.get())
         peso = float(pesoEntry.get())
         imc = peso / estatura**2
-      
+      # Decisión de imc
         if imc < 16:
             messagebox.showinfo("Resultado","Su imc corresponde a delgadez severa")
         elif imc < 17:
@@ -236,23 +226,47 @@ def ingSanidad():
             messagebox.showinfo("Resultado","Su imc corresponde a Obesidad grado II (grave)")
         else:
             messagebox.showinfo("Resultado","Su imc corresponde a Obesidad grado III (mórbida)")
+    # Botón para calcular
     boton3Calcular = Button(sanidadDatos, text="Calcular", font=("Arial", 12), bg="green", fg="white", command=convertir_imc)
     boton3Calcular.place(x=350, y=260)
 
 
 
-
+# Botones pantalla principal
 ing_Notas = Button(ventana_Principal, text="Nota definitiva", command=ingNotas)
 ing_Notas.config(font=("Arial", 12),height=1, width=25 )
-ing_Notas.place(x=200, y=250)
+ing_Notas.place(x=180, y=250)
 
 ing_Datos = Button(ventana_Principal, text="Ingresar datos personales", command=ingDatosdf)
 ing_Datos.config(font=("Arial", 12), height=1, width=25)
-ing_Datos.place(x=200, y =150)
+ing_Datos.place(x=180, y =150)
 
 ing_Salud = Button(ventana_Principal, text="IMC", command=ingSanidad)
 ing_Salud.config(font=("Arial", 12),height=1, width=25 )
-ing_Salud.place(x=200, y=350)
+ing_Salud.place(x=180, y=350)
 
+ing_Salir = Button(ventana_Principal, text="Salir", command=ventana_Principal.destroy)
+ing_Salir.config(font=("Arial", 12),height=1, width=25 )
+ing_Salir.place(x=180, y=450)
+# Menú
+barra_Menu = Menu()
+ventana_Principal.config(menu=barra_Menu)
+menu_IngDatos = Menu(tearoff=0)
+menu_IngDatos.add_command(label="Ingresar datos", command=ingDatosdf)
+menu_IngDatos.add_separator()
+menu_Nota = Menu(tearoff=0)
+menu_Nota.add_command(label="Definitiva", command=ingNotas)
+menu_Nota.add_separator()
+menu_Salir = Menu(tearoff=0)
+menu_Salir.add_command(label="Salir", command=ventana_Principal.destroy)
+menu_Salir.add_separator()
+menu_Imc = Menu(tearoff=0)
+menu_Imc.add_command(label="IMC", command=ingSanidad)
+menu_Imc.add_separator()
+barra_Menu.add_cascade(label="Ingresar datos", menu=menu_IngDatos)
+barra_Menu.add_cascade(label="Nota definitiva", menu=menu_Nota)
+barra_Menu.add_cascade(label="IMC", menu=menu_Imc)
+barra_Menu.add_cascade(label="Salir", menu=menu_Salir)
+
+# Run
 ventana_Principal.mainloop()
-#ventana__Principal.mainloop()
